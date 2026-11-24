@@ -2,3 +2,4 @@ encrypt
 *.png
 *.jpg
 !samples/*
+key.bin
