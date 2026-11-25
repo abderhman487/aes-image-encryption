@@ -4,14 +4,23 @@ A C tool using **OpenSSL EVP** and **stb_image** to encrypt raw image pixels usi
 
 ## Prerequisites
 * GCC & OpenSSL (`libcrypto`)
+- **For GUI:** `raylib` 
 
 ## Build & Run
-```bash
-gcc -Wall -Wextra main.c crypto.c -o encrypt -lcrypto -lm
-./encrypt <image_path>
-```
 
+### CLI
+```bash
+gcc -Wall -Wextra main.c crypto.c image_crypto.c -o encrypt -lcrypto -lm
+./encrypt <enc|dec> <image_path> <mode>
+```
 Select the mode when prompted (`1`: ECB, `2`: CBC, `3`: CTR). The output is saved as `encrypted.png`.
+
+### GUI
+```bash
+gcc gui.c crypto.c image_crypto.c -o gui -lraylib -lcrypto -lm
+./gui
+```
+Drag and drop an image onto the window, select ECB, CBC, or CTR, and click Encrypt or Decrypt.
 
 ## Visual Comparison
 
